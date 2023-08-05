@@ -4,7 +4,7 @@ personal data"""
 import logging
 import mysql.connector as connector
 import os
-from typing import List, Dict
+from typing import Dict, Tuple
 import re
 
 
@@ -36,7 +36,7 @@ class RedactingFormatter(logging.Formatter):
         return super().format(record)
 
 
-PII_FIELDS: List[str] = ['email', 'phone', 'ssn', 'password', 'name']
+PII_FIELDS: Tuple[str] = ('email', 'phone', 'ssn', 'password', 'name')
 
 
 def get_logger() -> logging.Logger:
@@ -51,7 +51,7 @@ def get_logger() -> logging.Logger:
     log.propagate = False
     log.setLevel(logging.INFO)
     handler: logging.StreamHandler = logging.StreamHandler()
-    handler.setFormatter(RedactingFormatter(PII_FIELDS))
+    handler.setFormatter(RedactingFormatter(list(PII_FIELDS)))
     log.addHandler(handler)
     return log
 

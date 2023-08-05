@@ -4,7 +4,7 @@ personal data"""
 import logging
 import mysql.connector as connector
 import os
-from typing import Dict, Tuple
+from typing import Dict, Tuple, List
 import re
 
 

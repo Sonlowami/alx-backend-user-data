@@ -37,9 +37,9 @@ class BasicAuth(Auth):
         """Get user credentials from decoded value"""
         decoded: str = decoded_base64_authorization_header
         if type(decoded) != str:
-            return None
+            return None, None
         if ':' not in decoded:
-            return None
+            return None, None
         credentials = decoded.split(':')
         return (credentials[0], credentials[1])
 

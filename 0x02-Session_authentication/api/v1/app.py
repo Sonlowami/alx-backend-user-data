@@ -32,7 +32,8 @@ def filter_requests() -> None:
     """Filter incoming requests for authorization"""
     if auth is not None:
         allowed_paths: List = ['/api/v1/status/', '/api/v1/unauthorized/',
-                         '/api/v1/forbidden/', '/api/v1/auth_session/login/']
+                               '/api/v1/forbidden/',
+                               '/api/v1/auth_session/login/']
         if auth.require_auth(request.path, allowed_paths):
 
             if auth.authorization_header(request) is None:

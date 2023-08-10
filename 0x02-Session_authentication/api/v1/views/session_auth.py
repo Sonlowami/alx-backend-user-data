@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """Impliment a log in endpoint"""
 from api.v1.views import app_views
 from flask import jsonify, request, abort, make_response
